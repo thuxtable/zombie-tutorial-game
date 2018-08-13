@@ -1,9 +1,15 @@
 #include "stdafx.h"
 #include "Bullet.h"
+#include "TextureHolder.h"
 
 //Constructor
 Bullet::Bullet() {
 	m_BulletShape.setSize(sf::Vector2f(2, 2));
+	//const Color m_outline = m_BulletShape.getOutlineColor(); // (sf::Color(0, 0, 0, 255));
+	//const Color m_fill = m_BulletShape.getFillColor(); // (sf::Color(0, 0, 0, 255));
+	//m_BulletShape.setOutlineColor(sf::Color(0, 0, 0, 255));
+	m_BulletShape.setFillColor(sf::Color(0, 0, 0, 255));
+	//m_BulletShape.setTexture(TextureHolder::GetTexture("graphics/bullet.png"));
 }
 
 void Bullet::shoot(float startX, float startY, float targetX, float targetY) {
@@ -24,8 +30,8 @@ void Bullet::shoot(float startX, float startY, float targetX, float targetY) {
 	float ratioXY = m_BulletSpeed / (1 + gradient);
 
 	//Set the "speed" horizontally and vertically
-	m_BulletDistanceX = ratioXY;
-	m_BulletDistanceY = ratioXY * gradient;
+	m_BulletDistanceY = ratioXY;
+	m_BulletDistanceX = ratioXY * gradient;
 
 	//Point the bullet in the right direction
 	if (targetX < startX) {
