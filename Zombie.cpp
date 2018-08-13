@@ -53,7 +53,7 @@ bool Zombie::hit() {
 	
 	if (m_Health < 0) {
 		m_Alive = false;
-		m_Sprite.setTexture(TextureHolder::GetTexture("graphics / blood.png"));
+		m_Sprite.setTexture(TextureHolder::GetTexture("graphics/blood.png"));
 		return true; //Dead
 	}
 	// Injured but not dead

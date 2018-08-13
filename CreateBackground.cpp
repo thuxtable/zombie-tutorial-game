@@ -29,7 +29,7 @@ int createBackground(VertexArray& rVA, IntRect arena) {
 			rVA[currentVertex + 0].position = Vector2f(w * TILE_SIZE, h * TILE_SIZE);
 			rVA[currentVertex + 1].position = Vector2f((w * TILE_SIZE) + TILE_SIZE, h * TILE_SIZE);
 			rVA[currentVertex + 2].position = Vector2f((w * TILE_SIZE) + TILE_SIZE, (h * TILE_SIZE) + TILE_SIZE);
-			rVA[currentVertex + 3].position = Vector2f(w * TILE_SIZE, (h * TILE_SIZE) + TILE_SIZE);
+			rVA[currentVertex + 3].position = Vector2f((w * TILE_SIZE), (h * TILE_SIZE) + TILE_SIZE);
 		
 			//Define the position in the Text for the current quad
 			//Either grass, stone, bush, or wall
@@ -42,7 +42,7 @@ int createBackground(VertexArray& rVA, IntRect arena) {
 			}
 			else {
 				//Otherwise, use a random floor texture to fill the middle
-				srand((int)time(0) + h * w - h);
+				srand((int)time(0) + h * w); // Guide advocates using term "h * w - h" but this resulted in first column always being same tile type
 				int mOrG = (rand() % TILE_TYPES);
 				int verticalOffset = mOrG * TILE_SIZE;
 
